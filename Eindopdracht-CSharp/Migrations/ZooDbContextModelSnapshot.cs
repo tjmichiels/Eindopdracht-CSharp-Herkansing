@@ -70,6 +70,138 @@ namespace Eindopdracht_CSharp.Migrations
                     b.HasIndex("EnclosureId");
 
                     b.ToTable("Animals");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ActivityPattern = 0,
+                            CategoryId = 1,
+                            DietaryClass = 4,
+                            EnclosureId = 1,
+                            Name = "Chanelle",
+                            SecurityRequirement = 2,
+                            Size = 3,
+                            SpaceRequirement = 14.923443252845539,
+                            Species = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ActivityPattern = 2,
+                            CategoryId = 5,
+                            DietaryClass = 2,
+                            EnclosureId = 3,
+                            Name = "Providenci",
+                            SecurityRequirement = 1,
+                            Size = 0,
+                            SpaceRequirement = 8.9817525494907411,
+                            Species = 32
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ActivityPattern = 1,
+                            CategoryId = 4,
+                            DietaryClass = 3,
+                            EnclosureId = 3,
+                            Name = "Viva",
+                            SecurityRequirement = 1,
+                            Size = 3,
+                            SpaceRequirement = 9.3153829438445328,
+                            Species = 7
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ActivityPattern = 1,
+                            CategoryId = 2,
+                            DietaryClass = 0,
+                            EnclosureId = 2,
+                            Name = "Meda",
+                            SecurityRequirement = 0,
+                            Size = 3,
+                            SpaceRequirement = 1.0055593220360459,
+                            Species = 28
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ActivityPattern = 0,
+                            CategoryId = 5,
+                            DietaryClass = 0,
+                            EnclosureId = 2,
+                            Name = "Jamar",
+                            SecurityRequirement = 1,
+                            Size = 5,
+                            SpaceRequirement = 5.5697026448134306,
+                            Species = 20
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ActivityPattern = 2,
+                            CategoryId = 3,
+                            DietaryClass = 1,
+                            EnclosureId = 3,
+                            Name = "Samanta",
+                            SecurityRequirement = 1,
+                            Size = 1,
+                            SpaceRequirement = 13.548255076668372,
+                            Species = 12
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ActivityPattern = 0,
+                            CategoryId = 2,
+                            DietaryClass = 2,
+                            EnclosureId = 1,
+                            Name = "Bettye",
+                            SecurityRequirement = 0,
+                            Size = 3,
+                            SpaceRequirement = 8.249516232600449,
+                            Species = 18
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ActivityPattern = 2,
+                            CategoryId = 1,
+                            DietaryClass = 3,
+                            EnclosureId = 2,
+                            Name = "Lenna",
+                            SecurityRequirement = 0,
+                            Size = 3,
+                            SpaceRequirement = 18.290522341669892,
+                            Species = 15
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ActivityPattern = 1,
+                            CategoryId = 5,
+                            DietaryClass = 3,
+                            EnclosureId = 1,
+                            Name = "Ibrahim",
+                            SecurityRequirement = 2,
+                            Size = 4,
+                            SpaceRequirement = 15.755415078795274,
+                            Species = 7
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ActivityPattern = 1,
+                            CategoryId = 4,
+                            DietaryClass = 4,
+                            EnclosureId = 2,
+                            Name = "Xander",
+                            SecurityRequirement = 2,
+                            Size = 3,
+                            SpaceRequirement = 2.5746396779547771,
+                            Species = 16
+                        });
                 });
 
             modelBuilder.Entity("Eindopdracht_CSharp.Models.Category", b =>
@@ -88,6 +220,33 @@ namespace Eindopdracht_CSharp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Mammals"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Birds"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Reptiles"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Aquatic Animals"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Insects"
+                        });
                 });
 
             modelBuilder.Entity("Eindopdracht_CSharp.Models.Enclosure", b =>
@@ -125,6 +284,35 @@ namespace Eindopdracht_CSharp.Migrations
                         .IsUnique();
 
                     b.ToTable("Enclosures");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Climate = 0,
+                            HabitatType = 8,
+                            Name = "Savanna",
+                            SecurityLevel = 2,
+                            Size = 500.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Climate = 0,
+                            HabitatType = 1,
+                            Name = "Rainforest",
+                            SecurityLevel = 1,
+                            Size = 300.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Climate = 2,
+                            HabitatType = 1,
+                            Name = "Arctic Zone",
+                            SecurityLevel = 2,
+                            Size = 400.0
+                        });
                 });
 
             modelBuilder.Entity("Eindopdracht_CSharp.Models.Zoo", b =>
@@ -142,6 +330,33 @@ namespace Eindopdracht_CSharp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Zoos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Boehm, Kohler and Dach"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Bahringer, Prosacco and Heller"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Kozey - Veum"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Jast, Predovic and Wiegand"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Dooley - Langworth"
+                        });
                 });
 
             modelBuilder.Entity("Eindopdracht_CSharp.Models.Animal", b =>
