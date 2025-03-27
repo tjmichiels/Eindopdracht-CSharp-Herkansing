@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Eindopdracht_CSharp.Data;
+using Eindopdracht_CSharp.Enums;
 using Eindopdracht_CSharp.Models;
 
 namespace Eindopdracht_CSharp.Controllers
@@ -86,8 +87,14 @@ namespace Eindopdracht_CSharp.Controllers
                 return NotFound();
             }
 
-            // Enclosure ID & naam
+            // Benodigde viewbags
+            ViewBag.DietaryClassList = new SelectList(Enum.GetValues(typeof(DietaryClass)));
+            ViewBag.ActivityPatternList = new SelectList(Enum.GetValues(typeof(ActivityPattern)));
+            ViewBag.SecurityRequirementList = new SelectList(Enum.GetValues(typeof(SecurityLevel)));
+            ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
+            ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
+            
             return View(animal);
         }
 
@@ -126,6 +133,13 @@ namespace Eindopdracht_CSharp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+            
+            // Viewbags
+            ViewBag.DietaryClassList = new SelectList(Enum.GetValues(typeof(DietaryClass)));
+            ViewBag.ActivityPatternList = new SelectList(Enum.GetValues(typeof(ActivityPattern)));
+            ViewBag.SecurityRequirementList = new SelectList(Enum.GetValues(typeof(SecurityLevel)));
+            ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
+            ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
             return View(animal);
         }

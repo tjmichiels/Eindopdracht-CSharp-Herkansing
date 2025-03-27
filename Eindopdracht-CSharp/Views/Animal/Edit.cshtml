@@ -20,22 +20,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Species" class="control-label"></label>
-                <select asp-for="Species" class="form-control"></select>
+                <select asp-for="Species" class="form-control" asp-items="ViewBag.SpeciesList"></select>
                 <span asp-validation-for="Species" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Size" class="control-label"></label>
-                <select asp-for="Size" class="form-control"></select>
+                <select asp-for="Size" class="form-control" asp-items="ViewBag.SizeList"></select>
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DietaryClass" class="control-label"></label>
-                <select asp-for="DietaryClass" class="form-control"></select>
+                <label asp-for="DietaryClass" class="control-label">Dietary Class</label>
+                <select asp-for="DietaryClass" class="form-control" asp-items="ViewBag.DietaryClassList"></select>
                 <span asp-validation-for="DietaryClass" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ActivityPattern" class="control-label"></label>
-                <select asp-for="ActivityPattern" class="form-control"></select>
+                <label asp-for="ActivityPattern" class="control-label">Activity Pattern</label>
+                <select asp-for="ActivityPattern" class="form-control" asp-items="ViewBag.ActivityPatternList"></select>
                 <span asp-validation-for="ActivityPattern" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,8 +44,8 @@
                 <span asp-validation-for="SpaceRequirement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecurityRequirement" class="control-label"></label>
-                <select asp-for="SecurityRequirement" class="form-control"></select>
+                <label asp-for="SecurityRequirement" class="control-label">Security Level Requirement</label>
+                <select asp-for="SecurityRequirement" class="form-control" asp-items="ViewBag.SecurityRequirementList"></select>
                 <span asp-validation-for="SecurityRequirement" class="text-danger"></span>
             </div>
             <div class="form-group">
