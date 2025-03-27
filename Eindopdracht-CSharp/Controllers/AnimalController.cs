@@ -24,7 +24,10 @@ namespace Eindopdracht_CSharp.Controllers
         public async Task<IActionResult> Index()
         {
             // return View(await _context.Animals.ToListAsync());
-            return View(await _context.Animals.Include(a => a.Enclosure).ToListAsync());
+            return View(await _context.Animals
+                .Include(a => a.Enclosure)
+                .Include(a => a.Category)
+                .ToListAsync());
         }
 
         // GET: Animal/Details/5
@@ -37,6 +40,7 @@ namespace Eindopdracht_CSharp.Controllers
 
             var animal = await _context.Animals
                 .Include(a => a.Enclosure)
+                .Include(a => a.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (animal == null)
             {
@@ -50,6 +54,13 @@ namespace Eindopdracht_CSharp.Controllers
         public IActionResult Create()
         {
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
+            ViewBag.DietaryClassList = new SelectList(Enum.GetValues(typeof(DietaryClass)));
+            ViewBag.ActivityPatternList = new SelectList(Enum.GetValues(typeof(ActivityPattern)));
+            ViewBag.SecurityRequirementList = new SelectList(Enum.GetValues(typeof(SecurityLevel)));
+            ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
+            ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
+            
             return View();
         }
 
@@ -70,6 +81,8 @@ namespace Eindopdracht_CSharp.Controllers
             }
             // Enclosure ID & naam
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
+            // Category ID & naam
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
             return View(animal);
         }
 
@@ -94,6 +107,7 @@ namespace Eindopdracht_CSharp.Controllers
             ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
             ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name", animal.CategoryId);
             
             return View(animal);
         }
@@ -141,6 +155,7 @@ namespace Eindopdracht_CSharp.Controllers
             ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
             ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name", animal.CategoryId);
             return View(animal);
         }
 
