@@ -55,7 +55,18 @@ namespace Eindopdracht_CSharp.Controllers
         // GET: Animal/Create
         public IActionResult Create()
         {
-            ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
+            // ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
+            ViewBag.Enclosures = _context.Enclosures
+                .Include(e => e.Zoo)
+                .AsEnumerable()
+                .OrderBy(e => e.Zoo?.Name) // sorteren op dierentuinnaam (nulls eerst)
+                .ThenBy(e => e.Name)       // en dan eventueel op enclosure naam
+                .Select(e => new SelectListItem
+                {
+                    Value = e.Id.ToString(),
+                    Text = $"{e.Zoo?.Name}: {e.Name}"
+                }).ToList();
+            
             ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
             ViewBag.DietaryClassList = new SelectList(Enum.GetValues(typeof(DietaryClass)));
             ViewBag.ActivityPatternList = new SelectList(Enum.GetValues(typeof(ActivityPattern)));

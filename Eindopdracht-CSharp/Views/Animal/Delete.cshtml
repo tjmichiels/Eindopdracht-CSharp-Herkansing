@@ -71,11 +71,13 @@
             @Html.DisplayFor(model => model.SecurityRequirement)
         </dd>
         <dt class="col-sm-2">
-            Enclosure Name
+            Zoo & Enclosure Name
             @* @Html.DisplayNameFor(model => model.Enclosure.Name) *@
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Enclosure.Name)
+            @(Model.Enclosure?.Zoo?.Name != null
+                ? $"{Model.Enclosure.Zoo.Name}: {Model.Enclosure.Name}"
+                : Model.Enclosure?.Name ?? "–")
         </dd>
     </dl>
 
