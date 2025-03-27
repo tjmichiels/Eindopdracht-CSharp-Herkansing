@@ -49,6 +49,11 @@
                 <span asp-validation-for="SecurityRequirement" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="EnclosureId" class="control-label">Enclosure</label>
+                <select asp-for="EnclosureId" class="form-control" asp-items="ViewBag.Enclosures"></select>
+                <span asp-validation-for="EnclosureId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary"/>
             </div>
         </form>

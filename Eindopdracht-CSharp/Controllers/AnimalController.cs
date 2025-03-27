@@ -22,7 +22,8 @@ namespace Eindopdracht_CSharp.Controllers
         // GET: Animal
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Animals.ToListAsync());
+            // return View(await _context.Animals.ToListAsync());
+            return View(await _context.Animals.Include(a => a.Enclosure).ToListAsync());
         }
 
         // GET: Animal/Details/5
@@ -34,6 +35,7 @@ namespace Eindopdracht_CSharp.Controllers
             }
 
             var animal = await _context.Animals
+                .Include(a => a.Enclosure)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (animal == null)
             {
@@ -65,6 +67,7 @@ namespace Eindopdracht_CSharp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            // Enclosure ID & naam
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
             return View(animal);
         }
@@ -83,6 +86,8 @@ namespace Eindopdracht_CSharp.Controllers
                 return NotFound();
             }
 
+            // Enclosure ID & naam
+            ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
             return View(animal);
         }
 
@@ -121,7 +126,7 @@ namespace Eindopdracht_CSharp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
             return View(animal);
         }
 
