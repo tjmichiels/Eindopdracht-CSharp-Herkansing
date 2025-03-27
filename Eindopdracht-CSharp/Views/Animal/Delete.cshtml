@@ -48,10 +48,18 @@
             @Html.DisplayFor(model => model.SpaceRequirement) m²
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SecurityRequirement)
+            Security Requirement
+            @* @Html.DisplayNameFor(model => model.SecurityRequirement) *@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.SecurityRequirement)
+        </dd>
+        <dt class="col-sm-2">
+            Enclosure Name
+            @* @Html.DisplayNameFor(model => model.Enclosure.Name) *@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enclosure.Name)
         </dd>
     </dl>
 

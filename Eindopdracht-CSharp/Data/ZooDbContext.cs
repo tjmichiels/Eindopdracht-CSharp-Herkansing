@@ -103,7 +103,6 @@ public class ZooDbContext : DbContext
                 SpaceRequirement = faker.Random.Double(1, 20),
                 SecurityRequirement = faker.PickRandom<SecurityLevel>(),
                 CategoryId = faker.PickRandom(categories.Select(c => (int?)c.Id)), 
-                // Enclosure = faker.PickRandom(enclosures),
                 EnclosureId = faker.PickRandom(enclosures.Select(e => (int?)e.Id))
             });
         }

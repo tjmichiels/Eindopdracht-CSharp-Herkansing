@@ -46,6 +46,7 @@ namespace Eindopdracht_CSharp.Controllers
         // GET: Animal/Create
         public IActionResult Create()
         {
+            ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
             return View();
         }
 
@@ -64,7 +65,7 @@ namespace Eindopdracht_CSharp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            
+            ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
             return View(animal);
         }
 
@@ -133,6 +134,7 @@ namespace Eindopdracht_CSharp.Controllers
             }
 
             var animal = await _context.Animals
+                .Include(a => a.Enclosure)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (animal == null)
             {
