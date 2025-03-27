@@ -22,7 +22,7 @@ namespace Eindopdracht_CSharp.Controllers
         // GET: Enclosure
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Enclosures.ToListAsync());
+            return View(await _context.Enclosures.Include(e => e.Zoo).ToListAsync());
         }
 
         // GET: Enclosure/Details/5
@@ -34,6 +34,7 @@ namespace Eindopdracht_CSharp.Controllers
             }
 
             var enclosure = await _context.Enclosures
+                .Include(e => e.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (enclosure == null)
             {
@@ -46,6 +47,7 @@ namespace Eindopdracht_CSharp.Controllers
         // GET: Enclosure/Create
         public IActionResult Create()
         {
+            ViewBag.Zoos = new SelectList(_context.Zoos.OrderBy(z => z.Name), "Id", "Name");
             return View();
         }
 
@@ -55,7 +57,7 @@ namespace Eindopdracht_CSharp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size")]
+            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size,ZooId")]
             Enclosure enclosure)
         {
             if (ModelState.IsValid)
@@ -64,7 +66,7 @@ namespace Eindopdracht_CSharp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.Zoos = new SelectList(_context.Zoos.OrderBy(z => z.Name), "Id", "Name");
             return View(enclosure);
         }
 
@@ -81,7 +83,7 @@ namespace Eindopdracht_CSharp.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.Zoos = new SelectList(_context.Zoos.OrderBy(z => z.Name), "Id", "Name");
             return View(enclosure);
         }
 
@@ -120,7 +122,7 @@ namespace Eindopdracht_CSharp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.Zoos = new SelectList(_context.Zoos.OrderBy(z => z.Name), "Id", "Name");
             return View(enclosure);
         }
 
@@ -133,6 +135,7 @@ namespace Eindopdracht_CSharp.Controllers
             }
 
             var enclosure = await _context.Enclosures
+                .Include(e => e.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (enclosure == null)
             {

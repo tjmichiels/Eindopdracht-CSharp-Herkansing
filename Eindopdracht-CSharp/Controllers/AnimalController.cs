@@ -83,7 +83,7 @@ namespace Eindopdracht_CSharp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Name,Species,Size,DietaryClass,ActivityPattern,SpaceRequirement,SecurityRequirement,EnclosureId")]
+            [Bind("Id,Name,CategoryId,Species,Size,DietaryClass,ActivityPattern,SpaceRequirement,SecurityRequirement,EnclosureId")]
             Animal animal)
         {
             if (ModelState.IsValid)
