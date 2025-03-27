@@ -26,6 +26,7 @@ namespace Eindopdracht_CSharp.Controllers
             // return View(await _context.Animals.ToListAsync());
             return View(await _context.Animals
                 .Include(a => a.Enclosure)
+                .ThenInclude(e => e.Zoo)
                 .Include(a => a.Category)
                 .ToListAsync());
         }
@@ -40,6 +41,7 @@ namespace Eindopdracht_CSharp.Controllers
 
             var animal = await _context.Animals
                 .Include(a => a.Enclosure)
+                .ThenInclude(e => e.Zoo)
                 .Include(a => a.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (animal == null)
@@ -60,7 +62,7 @@ namespace Eindopdracht_CSharp.Controllers
             ViewBag.SecurityRequirementList = new SelectList(Enum.GetValues(typeof(SecurityLevel)));
             ViewBag.SpeciesList = new SelectList(Enum.GetValues(typeof(Species)));
             ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
-            
+
             return View();
         }
 
@@ -79,8 +81,10 @@ namespace Eindopdracht_CSharp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             // Enclosure ID & naam
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name");
+
             // Category ID & naam
             ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name");
             return View(animal);
@@ -108,7 +112,7 @@ namespace Eindopdracht_CSharp.Controllers
             ViewBag.SizeList = new SelectList(Enum.GetValues(typeof(AnimalSize)));
             ViewBag.Enclosures = new SelectList(_context.Enclosures, "Id", "Name", animal.EnclosureId);
             ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name", animal.CategoryId);
-            
+
             return View(animal);
         }
 
@@ -147,7 +151,7 @@ namespace Eindopdracht_CSharp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            
+
             // Viewbags
             ViewBag.DietaryClassList = new SelectList(Enum.GetValues(typeof(DietaryClass)));
             ViewBag.ActivityPatternList = new SelectList(Enum.GetValues(typeof(ActivityPattern)));

@@ -15,7 +15,7 @@ public class ZooDbContext : DbContext
     public ZooDbContext(DbContextOptions<ZooDbContext> options) : base(options)
     {
     }
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.ConfigureWarnings(warnings =>
@@ -39,36 +39,30 @@ public class ZooDbContext : DbContext
         modelBuilder.Entity<Animal>()
             .HasOne(a => a.Enclosure)
             .WithMany(e => e.Animals)
-            .HasForeignKey(a => a.EnclosureId) 
+            .HasForeignKey(a => a.EnclosureId)
             .OnDelete(DeleteBehavior.SetNull);
 
         // Enclosure -> Zoo
         modelBuilder.Entity<Enclosure>()
-            .HasOne<Zoo>()
+            .HasOne(e => e.Zoo)
             .WithMany(z => z.Enclosures)
             .OnDelete(DeleteBehavior.Cascade);
         
         
-        // ZOO SEEDING
-        // Primary Keys
-        modelBuilder.Entity<Zoo>().HasKey(z => z.Id);
-        
-        int zooId = 1;
-        var zooFaker = new Faker<Zoo>()
-            .RuleFor(z => z.Id, _ => zooId++)  // Ensure unique IDs
-            .RuleFor(z => z.Name, f => f.Company.CompanyName());
-
-        modelBuilder.Entity<Zoo>().HasData(zooFaker.Generate(5));  
-        
         // Seeding-methode aanroepen
         SeedData(modelBuilder);
     }
-    
-     private void SeedData(ModelBuilder modelBuilder)
-    {
-        var faker = new Faker();
 
-        // Seed Categories
+    private void SeedData(ModelBuilder modelBuilder)
+    {
+// Zoo seeding
+        var zooFaker = new Faker<Zoo>()
+            .RuleFor(z => z.Id, f => f.IndexFaker + 1)
+            .RuleFor(z => z.Name, f => f.Company.CompanyName());
+        var zoos = zooFaker.Generate(5);
+        modelBuilder.Entity<Zoo>().HasData(zoos);
+        
+        // ---- Category seeding
         var categories = new List<Category>
         {
             new Category { Id = 1, Name = "Mammals" },
@@ -78,34 +72,34 @@ public class ZooDbContext : DbContext
             new Category { Id = 5, Name = "Insects" }
         };
         modelBuilder.Entity<Category>().HasData(categories);
-
-        // Seed Enclosures
-        var enclosures = new List<Enclosure>
-        {
-            new Enclosure { Id = 1, Name = "Savanna", Climate = Climate.Tropical, HabitatType = HabitatType.Grassland, SecurityLevel = SecurityLevel.High, Size = 500 },
-            new Enclosure { Id = 2, Name = "Rainforest", Climate = Climate.Tropical, HabitatType = HabitatType.Forest, SecurityLevel = SecurityLevel.Medium, Size = 300 },
-            new Enclosure { Id = 3, Name = "Arctic Zone", Climate = Climate.Arctic, HabitatType = HabitatType.Forest, SecurityLevel = SecurityLevel.High, Size = 400 }
-        };
+        
+        // ---- Enclosure seeding
+        var enclosureFaker = new Faker<Enclosure>()
+            .RuleFor(e => e.Id, f => f.IndexFaker + 1)
+            .RuleFor(e => e.Name, f => f.Commerce.Department())
+            .RuleFor(e => e.Climate, f => f.PickRandom<Climate>())
+            .RuleFor(e => e.HabitatType, f => f.PickRandom<HabitatType>())
+            .RuleFor(e => e.SecurityLevel, f => f.PickRandom<SecurityLevel>())
+            .RuleFor(e => e.Size, f => f.Random.Int(100, 1000))
+            .RuleFor(e => e.ZooId, f => f.PickRandom(zoos.Select(z => z.Id)));
+        
+        var enclosures = enclosureFaker.Generate(15);
         modelBuilder.Entity<Enclosure>().HasData(enclosures);
+        
+        // Animal seeding
+        var animalFaker = new Faker<Animal>()
+            .RuleFor(a => a.Id, f => f.IndexFaker + 1)
+            .RuleFor(a => a.Name, f => f.Name.FirstName())
+            .RuleFor(a => a.Species, f => f.PickRandom<Species>())
+            .RuleFor(a => a.Size, f => f.PickRandom<AnimalSize>())
+            .RuleFor(a => a.DietaryClass, f => f.PickRandom<DietaryClass>())
+            .RuleFor(a => a.ActivityPattern, f => f.PickRandom<ActivityPattern>())
+            .RuleFor(a => a.SpaceRequirement, f => f.Random.Double(1, 20))
+            .RuleFor(a => a.SecurityRequirement, f => f.PickRandom<SecurityLevel>())
+            .RuleFor(a => a.CategoryId, f => f.PickRandom(categories.Select(c => c.Id)))
+            .RuleFor(a => a.EnclosureId, f => f.PickRandom(enclosures.Select(e => e.Id)));
 
-        // Seed Animals using `Bogus`
-        var animals = new List<Animal>();
-        for (int i = 1; i <= 10; i++)
-        {
-            animals.Add(new Animal
-            {
-                Id = i,
-                Name = faker.Name.FirstName(),
-                Species = faker.PickRandom<Species>(),
-                Size = faker.PickRandom<AnimalSize>(),
-                DietaryClass = faker.PickRandom<DietaryClass>(),
-                ActivityPattern = faker.PickRandom<ActivityPattern>(),
-                SpaceRequirement = faker.Random.Double(1, 20),
-                SecurityRequirement = faker.PickRandom<SecurityLevel>(),
-                CategoryId = faker.PickRandom(categories.Select(c => (int?)c.Id)), 
-                EnclosureId = faker.PickRandom(enclosures.Select(e => (int?)e.Id))
-            });
-        }
+        var animals = animalFaker.Generate(10);
         modelBuilder.Entity<Animal>().HasData(animals);
     }
 }

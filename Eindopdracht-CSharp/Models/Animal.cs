@@ -11,9 +11,9 @@ public class Animal
 
     [Required] public Species Species { get; set; }
 
-    public int? CategoryId { get; set; } 
+    public int? CategoryId { get; set; }
     public Category? Category { get; set; }
-    public int? EnclosureId { get; set; }  
+    public int? EnclosureId { get; set; }
     public Enclosure? Enclosure { get; set; }
     public AnimalSize Size { get; set; }
     public DietaryClass DietaryClass { get; set; }

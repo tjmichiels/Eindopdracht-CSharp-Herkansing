@@ -11,6 +11,8 @@ public class Enclosure
 {
     [Key] public int Id { get; set; }
     [Required] public string Name { get; set; }
+    public int? ZooId { get; set; }
+    public Zoo? Zoo { get; set; }
     public List<Animal> Animals { get; set; } = new();
     [Required] public Climate Climate { get; set; }
     [Required] public HabitatType HabitatType { get; set; }

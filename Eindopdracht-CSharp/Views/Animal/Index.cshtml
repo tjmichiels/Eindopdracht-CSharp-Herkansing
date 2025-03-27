@@ -45,6 +45,9 @@
             @* @Html.DisplayNameFor(model => model.SecurityRequirement) *@
         </th>
         <th>
+            Zoo Name
+        </th>
+        <th>
             Enclosure Name
             @* @Html.DisplayNameFor(model => model.Enclosure.Name) *@
         </th>
@@ -81,6 +84,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SecurityRequirement)
+            </td>
+            <td>
+                @item.Enclosure?.Zoo?.Name
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Enclosure.Name)

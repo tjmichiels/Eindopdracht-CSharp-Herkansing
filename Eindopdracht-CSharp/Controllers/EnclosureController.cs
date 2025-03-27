@@ -55,7 +55,8 @@ namespace Eindopdracht_CSharp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size")] Enclosure enclosure)
+            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size")]
+            Enclosure enclosure)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,8 @@ namespace Eindopdracht_CSharp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,
-            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size")] Enclosure enclosure)
+            [Bind("Id,Name,Climate,HabitatType,SecurityLevel,Size")]
+            Enclosure enclosure)
         {
             if (id != enclosure.Id)
             {
