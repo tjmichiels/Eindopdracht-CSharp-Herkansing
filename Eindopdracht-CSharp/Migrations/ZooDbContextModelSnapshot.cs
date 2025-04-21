@@ -75,132 +75,132 @@ namespace Eindopdracht_CSharp.Migrations
                         new
                         {
                             Id = 1,
-                            ActivityPattern = 1,
-                            CategoryId = 1,
-                            DietaryClass = 0,
-                            EnclosureId = 7,
-                            Name = "Karli",
-                            SecurityRequirement = 1,
+                            ActivityPattern = 0,
+                            CategoryId = 4,
+                            DietaryClass = 3,
+                            EnclosureId = 12,
+                            Name = "Okey",
+                            SecurityRequirement = 0,
                             Size = 5,
-                            SpaceRequirement = 13.31547523301816,
-                            Species = 9
+                            SpaceRequirement = 3.7053918212301982,
+                            Species = 24
                         },
                         new
                         {
                             Id = 2,
                             ActivityPattern = 0,
-                            CategoryId = 1,
-                            DietaryClass = 0,
-                            EnclosureId = 8,
-                            Name = "Cyril",
-                            SecurityRequirement = 0,
-                            Size = 2,
-                            SpaceRequirement = 19.069224668057373,
-                            Species = 24
+                            CategoryId = 5,
+                            DietaryClass = 3,
+                            EnclosureId = 14,
+                            Name = "Bernice",
+                            SecurityRequirement = 1,
+                            Size = 1,
+                            SpaceRequirement = 1.0284269840285813,
+                            Species = 25
                         },
                         new
                         {
                             Id = 3,
-                            ActivityPattern = 0,
-                            CategoryId = 4,
+                            ActivityPattern = 2,
+                            CategoryId = 5,
                             DietaryClass = 3,
-                            EnclosureId = 15,
-                            Name = "Lilian",
-                            SecurityRequirement = 0,
-                            Size = 5,
-                            SpaceRequirement = 10.050986066753696,
-                            Species = 16
+                            EnclosureId = 3,
+                            Name = "Paris",
+                            SecurityRequirement = 2,
+                            Size = 2,
+                            SpaceRequirement = 1.6535331778675593,
+                            Species = 35
                         },
                         new
                         {
                             Id = 4,
-                            ActivityPattern = 1,
-                            CategoryId = 2,
-                            DietaryClass = 4,
-                            EnclosureId = 3,
-                            Name = "Claud",
-                            SecurityRequirement = 0,
-                            Size = 5,
-                            SpaceRequirement = 1.8377896692900442,
-                            Species = 33
+                            ActivityPattern = 2,
+                            CategoryId = 1,
+                            DietaryClass = 1,
+                            EnclosureId = 9,
+                            Name = "Lane",
+                            SecurityRequirement = 1,
+                            Size = 2,
+                            SpaceRequirement = 2.8399000803108279,
+                            Species = 7
                         },
                         new
                         {
                             Id = 5,
-                            ActivityPattern = 0,
-                            CategoryId = 4,
-                            DietaryClass = 4,
-                            EnclosureId = 9,
-                            Name = "Else",
-                            SecurityRequirement = 1,
-                            Size = 5,
-                            SpaceRequirement = 1.3997139115942203,
-                            Species = 30
+                            ActivityPattern = 1,
+                            CategoryId = 2,
+                            DietaryClass = 1,
+                            EnclosureId = 14,
+                            Name = "Davion",
+                            SecurityRequirement = 2,
+                            Size = 1,
+                            SpaceRequirement = 9.5525154581296725,
+                            Species = 15
                         },
                         new
                         {
                             Id = 6,
-                            ActivityPattern = 1,
-                            CategoryId = 2,
-                            DietaryClass = 0,
-                            EnclosureId = 11,
-                            Name = "Precious",
-                            SecurityRequirement = 0,
-                            Size = 4,
-                            SpaceRequirement = 5.7552594998554287,
-                            Species = 0
+                            ActivityPattern = 0,
+                            CategoryId = 3,
+                            DietaryClass = 4,
+                            EnclosureId = 10,
+                            Name = "Ryleigh",
+                            SecurityRequirement = 1,
+                            Size = 1,
+                            SpaceRequirement = 18.479984319098158,
+                            Species = 32
                         },
                         new
                         {
                             Id = 7,
                             ActivityPattern = 0,
                             CategoryId = 5,
-                            DietaryClass = 4,
+                            DietaryClass = 3,
                             EnclosureId = 9,
-                            Name = "Felipa",
-                            SecurityRequirement = 0,
-                            Size = 1,
-                            SpaceRequirement = 16.034144786311124,
-                            Species = 25
+                            Name = "Della",
+                            SecurityRequirement = 2,
+                            Size = 2,
+                            SpaceRequirement = 1.6570568238059913,
+                            Species = 16
                         },
                         new
                         {
                             Id = 8,
-                            ActivityPattern = 2,
+                            ActivityPattern = 1,
                             CategoryId = 1,
-                            DietaryClass = 3,
-                            EnclosureId = 5,
-                            Name = "Jake",
-                            SecurityRequirement = 0,
+                            DietaryClass = 0,
+                            EnclosureId = 14,
+                            Name = "Nolan",
+                            SecurityRequirement = 2,
                             Size = 2,
-                            SpaceRequirement = 6.0659505641523106,
-                            Species = 4
+                            SpaceRequirement = 12.018208824198663,
+                            Species = 25
                         },
                         new
                         {
                             Id = 9,
-                            ActivityPattern = 2,
-                            CategoryId = 2,
-                            DietaryClass = 0,
-                            EnclosureId = 10,
-                            Name = "Kieran",
-                            SecurityRequirement = 1,
-                            Size = 1,
-                            SpaceRequirement = 1.9320586050273405,
-                            Species = 0
+                            ActivityPattern = 0,
+                            CategoryId = 5,
+                            DietaryClass = 1,
+                            EnclosureId = 15,
+                            Name = "Sylvan",
+                            SecurityRequirement = 2,
+                            Size = 5,
+                            SpaceRequirement = 8.7697275484783557,
+                            Species = 29
                         },
                         new
                         {
                             Id = 10,
                             ActivityPattern = 1,
-                            CategoryId = 4,
-                            DietaryClass = 1,
-                            EnclosureId = 13,
-                            Name = "Chris",
-                            SecurityRequirement = 1,
+                            CategoryId = 5,
+                            DietaryClass = 3,
+                            EnclosureId = 3,
+                            Name = "Eloisa",
+                            SecurityRequirement = 0,
                             Size = 2,
-                            SpaceRequirement = 15.166187599420848,
-                            Species = 12
+                            SpaceRequirement = 2.7571552086148716,
+                            Species = 34
                         });
                 });
 
@@ -289,152 +289,152 @@ namespace Eindopdracht_CSharp.Migrations
                         new
                         {
                             Id = 1,
-                            Climate = 2,
+                            Climate = 1,
                             HabitatType = 1,
-                            Name = "Home",
-                            SecurityLevel = 2,
-                            Size = 443.0,
-                            ZooId = 1
+                            Name = "Industrial",
+                            SecurityLevel = 1,
+                            Size = 198.0,
+                            ZooId = 4
                         },
                         new
                         {
                             Id = 2,
-                            Climate = 1,
-                            HabitatType = 2,
-                            Name = "Grocery",
-                            SecurityLevel = 0,
-                            Size = 513.0,
-                            ZooId = 5
+                            Climate = 0,
+                            HabitatType = 4,
+                            Name = "Movies & Movies",
+                            SecurityLevel = 2,
+                            Size = 289.0,
+                            ZooId = 2
                         },
                         new
                         {
                             Id = 3,
                             Climate = 1,
                             HabitatType = 2,
-                            Name = "Baby",
-                            SecurityLevel = 0,
-                            Size = 387.0,
-                            ZooId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Climate = 1,
-                            HabitatType = 4,
-                            Name = "Clothing, Health & Music",
+                            Name = "Toys",
                             SecurityLevel = 1,
-                            Size = 327.0,
+                            Size = 309.0,
                             ZooId = 5
                         },
                         new
                         {
-                            Id = 5,
-                            Climate = 1,
+                            Id = 4,
+                            Climate = 2,
                             HabitatType = 1,
-                            Name = "Grocery & Home",
-                            SecurityLevel = 1,
-                            Size = 466.0,
+                            Name = "Electronics, Outdoors & Sports",
+                            SecurityLevel = 0,
+                            Size = 160.0,
                             ZooId = 1
                         },
                         new
                         {
-                            Id = 6,
-                            Climate = 1,
+                            Id = 5,
+                            Climate = 2,
                             HabitatType = 1,
-                            Name = "Automotive, Toys & Automotive",
+                            Name = "Tools",
                             SecurityLevel = 1,
-                            Size = 968.0,
-                            ZooId = 4
+                            Size = 679.0,
+                            ZooId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Climate = 0,
+                            HabitatType = 1,
+                            Name = "Garden & Computers",
+                            SecurityLevel = 2,
+                            Size = 742.0,
+                            ZooId = 5
                         },
                         new
                         {
                             Id = 7,
-                            Climate = 0,
-                            HabitatType = 2,
-                            Name = "Outdoors & Shoes",
+                            Climate = 2,
+                            HabitatType = 4,
+                            Name = "Health & Sports",
                             SecurityLevel = 0,
-                            Size = 693.0,
-                            ZooId = 4
+                            Size = 877.0,
+                            ZooId = 5
                         },
                         new
                         {
                             Id = 8,
-                            Climate = 1,
-                            HabitatType = 2,
-                            Name = "Books, Garden & Electronics",
-                            SecurityLevel = 2,
-                            Size = 471.0,
-                            ZooId = 4
+                            Climate = 0,
+                            HabitatType = 8,
+                            Name = "Jewelery, Music & Garden",
+                            SecurityLevel = 1,
+                            Size = 895.0,
+                            ZooId = 3
                         },
                         new
                         {
                             Id = 9,
                             Climate = 1,
-                            HabitatType = 1,
-                            Name = "Kids",
-                            SecurityLevel = 0,
-                            Size = 669.0,
-                            ZooId = 3
+                            HabitatType = 2,
+                            Name = "Shoes",
+                            SecurityLevel = 1,
+                            Size = 849.0,
+                            ZooId = 5
                         },
                         new
                         {
                             Id = 10,
                             Climate = 1,
                             HabitatType = 4,
-                            Name = "Garden, Home & Sports",
-                            SecurityLevel = 2,
-                            Size = 255.0,
-                            ZooId = 1
+                            Name = "Kids",
+                            SecurityLevel = 0,
+                            Size = 937.0,
+                            ZooId = 3
                         },
                         new
                         {
                             Id = 11,
                             Climate = 0,
                             HabitatType = 8,
-                            Name = "Books",
+                            Name = "Clothing, Music & Computers",
                             SecurityLevel = 1,
-                            Size = 996.0,
-                            ZooId = 2
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Climate = 2,
-                            HabitatType = 8,
-                            Name = "Health, Beauty & Computers",
-                            SecurityLevel = 0,
-                            Size = 847.0,
+                            Size = 885.0,
                             ZooId = 1
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 12,
                             Climate = 0,
+                            HabitatType = 8,
+                            Name = "Jewelery",
+                            SecurityLevel = 2,
+                            Size = 784.0,
+                            ZooId = 5
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Climate = 1,
                             HabitatType = 2,
-                            Name = "Electronics, Automotive & Home",
-                            SecurityLevel = 1,
-                            Size = 133.0,
-                            ZooId = 3
+                            Name = "Books",
+                            SecurityLevel = 2,
+                            Size = 770.0,
+                            ZooId = 2
                         },
                         new
                         {
                             Id = 14,
                             Climate = 1,
-                            HabitatType = 1,
-                            Name = "Shoes & Tools",
+                            HabitatType = 8,
+                            Name = "Baby",
                             SecurityLevel = 0,
-                            Size = 332.0,
+                            Size = 972.0,
                             ZooId = 5
                         },
                         new
                         {
                             Id = 15,
-                            Climate = 2,
-                            HabitatType = 8,
-                            Name = "Music, Music & Industrial",
+                            Climate = 1,
+                            HabitatType = 1,
+                            Name = "Jewelery",
                             SecurityLevel = 1,
-                            Size = 971.0,
-                            ZooId = 5
+                            Size = 535.0,
+                            ZooId = 4
                         });
                 });
 
@@ -458,27 +458,27 @@ namespace Eindopdracht_CSharp.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Pollich Group"
+                            Name = "Lehner - Weber"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Cormier Inc"
+                            Name = "Stoltenberg - McClure"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Blick LLC"
+                            Name = "Russel - Bashirian"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Okuneva - Kulas"
+                            Name = "Ullrich, Cummings and Brakus"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Senger Group"
+                            Name = "VonRueden - West"
                         });
                 });
 
